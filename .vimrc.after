@@ -43,3 +43,4 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 unlet g:ctrlp_custom_ignore
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 "sdfdsf
+test
