@@ -1,0 +1,48 @@
+[core]
+	excludesfile = /Users/nattawatnonsung/.gitignore_global
+	editor = /usr/bin/vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Nattawat Nonsung
+	email = armmer1@gmail.com
+[alias]
+lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+lg2 = log --graph --pretty=format:'%Cred%h%Creset - %C(dim white)%aD%C(reset) %Cgreen(%cr) %C(bold blue)<%an>%Creset%n %C(yellow)%d%Creset %s' --abbrev-commit
+taglg = log --tags --simplify-by-decoration --pretty='format:%ai %d'
+
+st = status
+pullr = pull --rebase
+co = checkout
+ci = commit
+cp = cherry-pick
+rb = rebase
+addp = add -p
+myy = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all --since=yesterday --author=armmer1@gmail.com
+myf = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all --since='3 days ago' --author=armmer1@gmail.com
+[push]
+	default = current
+[merge]
+	defaultToUpstream = true
+[branch]
+  autosetuprebase = always
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[credential]
+	helper = osxkeychain
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[gc]
+	auto = 1
