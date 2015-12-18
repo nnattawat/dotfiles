@@ -56,6 +56,6 @@ sources_destinations_mapping.each do |source, destination|
 		puts "Sync file(s):"
 		new_files.each{|file| puts "\t#{file}"}
 		syn_files source, destination
-    push_to_git new_files, dropbox_path
+    push_to_git new_files, destination
 	end
 end
