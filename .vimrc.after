@@ -1,0 +1,45 @@
+colorscheme Tomorrow-Night-Bright
+
+noremap \s :Ack<space>
+
+"Setup code folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
+"Set key waiting time
+set timeoutlen=500
+
+"Set the column length
+set colorcolumn=100
+
+"Set autocomplete for Vim commands
+set wildmenu
+
+"Highlight matched word
+let g:ackhighlight = 1
+
+let g:SuperTabCrMapping=1
+
+"Setup ctags file
+set tags=./tags;
+
+"Ignore warning on angular directive
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+"Disable arrow keys
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
+"Show hidden file 
+let NERDTreeShowHidden=1
+let g:ctrlp_show_hidden = 1
+
+"Ignore files -  CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+unlet g:ctrlp_custom_ignore
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+"sdfdsf
