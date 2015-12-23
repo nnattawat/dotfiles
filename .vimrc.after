@@ -1,6 +1,9 @@
 colorscheme Tomorrow-Night-Bright
 
-noremap \s :Ack<space>
+noremap <Leader>s :Ack<space>
+
+"refresh all buffers
+noremap <Leader>u :bufdo e!<ENTER>
 
 "Setup code folding
 set foldmethod=indent
