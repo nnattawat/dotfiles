@@ -1,7 +1,5 @@
 colorscheme Tomorrow-Night-Bright
 
-noremap <Leader>s :Ack<space>
-
 "refresh all buffers
 noremap <Leader>u :bufdo e!<ENTER>
 
