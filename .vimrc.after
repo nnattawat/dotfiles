@@ -1,3 +1,5 @@
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 colorscheme Tomorrow-Night-Bright
 
 "refresh all buffers
@@ -46,3 +48,4 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "Add extra space on comment line
 let NERDSpaceDelims=1
+
