@@ -5,6 +5,8 @@ colorscheme Tomorrow-Night-Bright
 "refresh all buffers
 noremap <Leader>u :bufdo e!<ENTER>
 
+noremap <Leader>B :bufdo<space>
+
 "Setup code folding
 set foldmethod=indent
 set foldnestmax=10
