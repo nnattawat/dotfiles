@@ -39,7 +39,7 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-"Show hidden file 
+"Show hidden file
 let NERDTreeShowHidden=1
 let g:ctrlp_show_hidden = 1
 
