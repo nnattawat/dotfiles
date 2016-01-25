@@ -26,7 +26,10 @@ def syn_files source, destination
 end
 
 def push_to_git new_files, local_path
-  execute_cmd "cd #{local_path} && git add ."
+  execute_cmd "cd #{local_path}"
+  execute_cmd "git config --local user.name 'nnattawat'"
+  execute_cmd "git config --local user.email 'armmer1@gmail.com'"
+  execute_cmd "git add ."
   unless (execute_cmd "cd #{local_path} && git diff --cached").empty?
     execute_cmd "cd #{local_path} && git commit -m 'Changed files: #{ new_files.join(",") }'"
     execute_cmd "cd #{local_path} && git push  origin master"

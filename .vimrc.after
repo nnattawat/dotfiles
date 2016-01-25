@@ -50,4 +50,3 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "Add extra space on comment line
 let NERDSpaceDelims=1
-
