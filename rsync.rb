@@ -27,6 +27,8 @@ end
 
 def push_to_git new_files, local_path
   execute_cmd "cd #{local_path} && $(which git) add ."
+  execute_cmd "cd #{local_path} && $(which git) config --local user.name='nnattawat'"
+  execute_cmd "cd #{local_path} && $(which git) config --local user.email='armmer1@gmail.com'"
   unless (execute_cmd "cd #{local_path} && $(which git) diff --cached").empty?
     execute_cmd "cd #{local_path} && $(which git) commit -m 'Changed files: #{ new_files.join(",") }'"
     execute_cmd "cd #{local_path} && $(which git) push  origin master"
