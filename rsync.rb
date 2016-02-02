@@ -43,6 +43,7 @@ sources_destinations_mapping = [
 	["#{sublime_path}Default\\ \\(OSX\\).sublime-keymap", dropbox_path],
   ["~/Workspace/thebookingbutton/.git/hooks/pre-commit", dropbox_path],
   ["~/.vimrc.after", dropbox_path],
+  ["~/.bash_profile", dropbox_path],
   ["/Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb", dropbox_path]
 ]
 sublime_snippets = execute_cmd "ls #{sublime_path} | grep .sublime-snippet"
