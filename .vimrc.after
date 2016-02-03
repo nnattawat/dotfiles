@@ -1,6 +1,7 @@
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night-Bright
+colorscheme vividchalk
 
 "refresh all buffers
 noremap <Leader>u :bufdo e!<ENTER>
@@ -14,7 +15,7 @@ set nofoldenable
 set foldlevel=1
 
 "Set key waiting time
-set timeoutlen=500
+set timeoutlen=300
 
 "Set the column length
 set colorcolumn=100
@@ -50,3 +51,24 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "Add extra space on comment line
 let NERDSpaceDelims=1
+
+" move cursor to last position when open files
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif"`'")"'")
+
+" Enable matchit
+if !exists('g:loaded_matchit')
+  runtime macros/matchit.vim
+endif
+
+" disable cursor line one insert mode
+" autocmd WinEnter    * set cursorline
+" autocmd WinLeave    * set nocursorline
+" autocmd InsertEnter * set nocursorline
+" autocmd InsertLeave * set cursorline
+
+" Navigate previous/next command lines using arrow match
+cnoremap <c-n>  <down>
+cnoremap <c-p>  <up>
