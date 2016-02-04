@@ -35,15 +35,15 @@ def push_to_git new_files, local_path
   end
 end
 
-sublime_path = "~/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/User/"
-dropbox_path = "~/Dropbox/backup-scripts/"
+sublime_path = "/Users/nattawatnonsung/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/User/"
+dropbox_path = "/Users/nattawatnonsung/Dropbox/backup-scripts/"
 # array of sources and distinations you want to sync
 sources_destinations_mapping = [
-	["~/.gitconfig", dropbox_path],
+	["/Users/nattawatnonsung/.gitconfig", dropbox_path],
 	["#{sublime_path}Default\\ \\(OSX\\).sublime-keymap", dropbox_path],
-  ["~/Workspace/thebookingbutton/.git/hooks/pre-commit", dropbox_path],
-  ["~/.vimrc.after", dropbox_path],
-  ["~/.bash_profile", dropbox_path],
+  ["/Users/nattawatnonsung/Workspace/thebookingbutton/.git/hooks/pre-commit", dropbox_path],
+  ["/Users/nattawatnonsung/.vimrc.after", dropbox_path],
+  ["/Users/nattawatnonsung/.bash_profile", dropbox_path],
   ["/Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb", dropbox_path]
 ]
 sublime_snippets = execute_cmd "ls #{sublime_path} | grep .sublime-snippet"
