@@ -57,7 +57,7 @@ alias postgre-reset='rm /usr/local/var/postgres/postmaster.pid'
 FullStar="★ "
 Wine="🍷 "
 
-function clear-local-branches() {
+clear_local_branches() {
 remote_branches=`git branch -r --no-color --list | grep -v HEAD | sed -e 's/  origin\///g'`
 local_branches=`git branch --no-color | sed -e 's/[ *]//g'`
 
@@ -74,13 +74,13 @@ for branch in $local_branches; do
 done
 }
 
-function reload-db() {
+reload_db() {
 bundle exec rake db:drop>/dev/null;
 bundle exec rake db:create>/dev/null;
 printf "$Wine DB has been recreated.\n";
 }
 
-function reload-data-tbb() {
+reload_data_tbb() {
 environment=($@)
 possible_env='test dev prod development production'
 if [[ ! $environment || ! $possible_env =~  $environment ]]; then
@@ -123,7 +123,7 @@ esac
 # function goto (working directory)
 # INFO: You should change 'Work' to your working directory
 #
-function goto() {
+goto() {
 cd $HOME/Workspace/$1
 }
 # Completion for goto
@@ -137,7 +137,7 @@ _complete_goto_folders () {
 }
 complete -F _complete_goto_folders goto
 
-function search() {
+search() {
 KEYWORD=$1
 FOLDER=$2
 if [ -z "$KEYWORD" ] && [ -z "$FOLDER" ]
@@ -164,7 +164,7 @@ alias dc='docker-compose'
 alias d='docker'
 
 remove_dangling_containers () {
-  docker images -q -f='dangling=true' | xargs docker rmi -f
+  docker images -q -f='dangling=true' | xargs docker rmi
 }
 
 sync_dot_files () {
