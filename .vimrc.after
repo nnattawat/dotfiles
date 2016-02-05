@@ -64,10 +64,10 @@ if !exists('g:loaded_matchit')
 endif
 
 " disable cursor line one insert mode
-" autocmd WinEnter    * set cursorline
-" autocmd WinLeave    * set nocursorline
-" autocmd InsertEnter * set nocursorline
-" autocmd InsertLeave * set cursorline
+autocmd WinEnter    * set cursorline
+autocmd WinLeave    * set nocursorline
+autocmd InsertEnter * set nocursorline
+autocmd InsertLeave * set cursorline
 
 " Navigate previous/next command lines using arrow match
 cnoremap <c-n>  <down>
