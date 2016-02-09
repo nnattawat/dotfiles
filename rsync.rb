@@ -44,7 +44,9 @@ sources_destinations_mapping = [
   ["/Users/nattawatnonsung/Workspace/thebookingbutton/.git/hooks/pre-commit", dropbox_path],
   ["/Users/nattawatnonsung/.vimrc.after", dropbox_path],
   ["/Users/nattawatnonsung/.bash_profile", dropbox_path],
-  ["/Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb", dropbox_path]
+  ["/Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb", dropbox_path],
+  ["/Users/nattawatnonsung/Workspace/playground/jquery/Vagrantfile", dropbox_path],
+  ["/Users/nattawatnonsung/Workspace/playground/jquery/bootstrap.sh", dropbox_path]
 ]
 sublime_snippets = execute_cmd "ls #{sublime_path} | grep .sublime-snippet"
 sublime_snippets.split(/\n/).each do |filename|
