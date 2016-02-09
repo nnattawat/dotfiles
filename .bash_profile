@@ -164,7 +164,7 @@ alias dc='docker-compose'
 alias d='docker'
 
 remove_dangling_containers () {
-  docker images -q -f='dangling=true' | xargs docker rmi
+  docker images -q -f='dangling=true' | xargs docker rmi -f
 }
 
 sync_dot_files () {
