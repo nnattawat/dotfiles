@@ -2,6 +2,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 " colorscheme Tomorrow-Night-Bright
 colorscheme vividchalk
+:highlight Comment ctermbg=none ctermfg=darkcyan
 
 "refresh all buffers
 noremap <Leader>u :bufdo e!<ENTER>
