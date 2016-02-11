@@ -73,3 +73,6 @@ autocmd InsertLeave * set cursorline
 " Navigate previous/next command lines using arrow match
 cnoremap <c-n>  <down>
 cnoremap <c-p>  <up>
+
+" default was 500
+let g:gitgutter_max_signs = 100 
