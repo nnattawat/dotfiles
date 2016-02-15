@@ -76,3 +76,6 @@ cnoremap <c-p>  <up>
 
 " default was 500
 let g:gitgutter_max_signs = 100 
+
+" press 'r' in visual mode to replace current selection with yark in the registry
+vmap r "_dP"
