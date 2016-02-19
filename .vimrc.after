@@ -3,6 +3,8 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 " colorscheme Tomorrow-Night-Bright
 colorscheme vividchalk
 :highlight Comment ctermbg=none ctermfg=darkcyan
+:highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
 
 "refresh all buffers
 noremap <Leader>u :bufdo e!<ENTER>
@@ -19,7 +21,8 @@ set foldlevel=1
 set timeoutlen=300
 
 "Set the column length
-set colorcolumn=100
+let &colorcolumn="100"
+" let &colorcolumn="80,".join(range(100,999),",")
 
 "Set autocomplete for Vim commands
 set wildmenu
@@ -75,7 +78,7 @@ cnoremap <c-n>  <down>
 cnoremap <c-p>  <up>
 
 " default was 500
-let g:gitgutter_max_signs = 100 
+let g:gitgutter_max_signs = 700
 
 " press 'r' in visual mode to replace current selection with yark in the registry
 vmap r "_dP"
