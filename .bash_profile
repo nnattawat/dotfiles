@@ -30,6 +30,9 @@ NC="\e[0m"              # Color Reset
 export EDITOR=vim
 
 source ~/git-completion.bash
+source ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -170,7 +173,3 @@ remove_dangling_containers () {
 sync_dot_files () {
   ruby /Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb
 }
-
-# https://github.com/magicmonty/bash-git-prompt
-source /Users/nattawatnonsung/Workspace/.bash-git-prompt/gitprompt.sh
-GIT_PROMPT_ONLY_IN_REPO=1
