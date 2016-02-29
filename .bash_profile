@@ -33,7 +33,9 @@ source ~/git-completion.bash
 source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_DESCRIBE_STYLE="branch"
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
