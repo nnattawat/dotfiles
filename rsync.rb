@@ -36,21 +36,21 @@ def push_to_git new_files, local_path
 end
 
 sublime_path = "/Users/nattawatnonsung/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/User/"
-dropbox_path = "/Users/nattawatnonsung/Dropbox/backup-scripts/"
+des_path = "/Users/nattawatnonsung/Workspace/dotfiles/"
 # array of sources and distinations you want to sync
 sources_destinations_mapping = [
-	["/Users/nattawatnonsung/.gitconfig", dropbox_path],
-	["#{sublime_path}Default\\ \\(OSX\\).sublime-keymap", dropbox_path],
-  ["/Users/nattawatnonsung/Workspace/thebookingbutton/.git/hooks/pre-commit", dropbox_path],
-  ["/Users/nattawatnonsung/.vimrc.after", dropbox_path],
-  ["/Users/nattawatnonsung/.bash_profile", dropbox_path],
-  ["/Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb", dropbox_path],
-  ["/Users/nattawatnonsung/Workspace/playground/jquery/Vagrantfile", dropbox_path],
-  ["/Users/nattawatnonsung/Workspace/playground/jquery/bootstrap.sh", dropbox_path]
+	["/Users/nattawatnonsung/.gitconfig", des_path],
+	["#{sublime_path}Default\\ \\(OSX\\).sublime-keymap", des_path],
+  ["/Users/nattawatnonsung/Workspace/thebookingbutton/.git/hooks/pre-commit", des_path],
+  ["/Users/nattawatnonsung/.vimrc.after", des_path],
+  ["/Users/nattawatnonsung/.bash_profile", des_path],
+  ["/Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb", des_path],
+  ["/Users/nattawatnonsung/Workspace/playground/jquery/Vagrantfile", des_path],
+  ["/Users/nattawatnonsung/Workspace/playground/jquery/bootstrap.sh", des_path]
 ]
 sublime_snippets = execute_cmd "ls #{sublime_path} | grep .sublime-snippet"
 sublime_snippets.split(/\n/).each do |filename|
-	sources_destinations_mapping << ["#{sublime_path+filename}", dropbox_path]
+	sources_destinations_mapping << ["#{sublime_path+filename}", des_path]
 end
 sources_destinations_mapping.each do |source, destination|
 	new_files = list_new_files source, destination
