@@ -82,9 +82,28 @@ done
 }
 
 reload_db() {
-bundle exec rake db:drop>/dev/null;
-bundle exec rake db:create>/dev/null;
-printf "$Wine DB has been recreated.\n";
+environment=($@)
+possible_env='test dev development'
+if [[ ! $environment || ! $possible_env =~  $environment ]]; then
+  while true; do
+    read -p "load schema for which env? (test/dev/cancel/c) " answer
+    case $answer in
+      test | dev ) environment=$answer; break;;
+      c | cancel ) return;;
+      * ) echo "I don't understand...";;
+    esac
+  done
+fi
+case $environment in
+  [dev]*) environment=development;;
+esac
+case $environment in
+  development | test )
+    bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
+    bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
+    printf "$Wine $environment DB has been recreated.\n";
+  ;;
+esac
 }
 
 reload_data_tbb() {
