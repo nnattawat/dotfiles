@@ -18,11 +18,11 @@ set nofoldenable
 set foldlevel=1
 
 "Set key waiting time
-set timeoutlen=300
+set timeoutlen=200
 
 "Set the column length
-let &colorcolumn="100"
-" let &colorcolumn="80,".join(range(100,999),",")
+" let &colorcolumn="100"
+let &colorcolumn="100,".join(range(200,999),",")
 
 "Set autocomplete for Vim commands
 set wildmenu
