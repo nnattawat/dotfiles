@@ -82,3 +82,8 @@ let g:gitgutter_max_signs = 700
 
 " press 'r' in visual mode to replace current selection with yark in the registry
 vmap r "_dP"
+
+" new tab
+noremap tn :tabnew<CR>
+" disable cursor line one insert mode
+noremap td :tabclose<CR>
