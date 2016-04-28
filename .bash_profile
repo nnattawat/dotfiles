@@ -196,3 +196,7 @@ remove_dangling_containers () {
 sync_dot_files () {
   ruby /Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb
 }
+
+vundle () {
+  vim +PluginInstall +qall
+}
