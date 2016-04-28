@@ -14,6 +14,7 @@
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 lg2 = log --graph --pretty=format:'%Cred%h%Creset - %C(dim white)%aD%C(reset) %Cgreen(%cr) %C(bold blue)<%an>%Creset%n %C(yellow)%d%Creset %s' --abbrev-commit
 taglg = log --tags --simplify-by-decoration --pretty='format:%ai %d'
+ls = ls-tree --name-only -r HEAD
 
 st = status
 pullr = pull --rebase
