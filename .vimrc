@@ -17,6 +17,11 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'bronson/vim-trailing-whitespace'
 
 " Indentation
 set expandtab
@@ -52,7 +57,7 @@ let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " colorscheme Tomorrow-Night-Bright
-" colorscheme vividchalk
+colorscheme vividchalk
 :highlight Comment ctermbg=none ctermfg=darkcyan
 :highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
@@ -100,9 +105,8 @@ let NERDTreeShowHidden=1
 let g:ctrlp_show_hidden = 1
 
 "Ignore files -  CtrlP
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-"unlet g:ctrlp_custom_ignore
-"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "Add extra space on comment line
 let NERDSpaceDelims=0
@@ -118,11 +122,12 @@ if !exists('g:loaded_matchit')
   runtime macros/matchit.vim
 endif
 
+set cursorline
 " disable cursor line one insert mode
-autocmd WinEnter    * set cursorline
-autocmd WinLeave    * set nocursorline
-autocmd InsertEnter * set nocursorline
-autocmd InsertLeave * set cursorline
+" autocmd WinEnter    * set cursorline
+" autocmd WinLeave    * set nocursorline
+" autocmd InsertEnter * set nocursorline
+" autocmd InsertLeave * set cursorline
 
 " Navigate previous/next command lines using arrow match
 cnoremap <c-n>  <down>
@@ -136,5 +141,11 @@ vmap r "_dP"
 
 " new tab
 noremap tn :tabnew<CR>
-" disable cursor line one insert mode
 noremap td :tabclose<CR>
+
+" Menu for the buffers
+nnoremap <Leader>b :buffers<CR>:buffer<space>
+
+" Press Space to turn off highlighting and clear any message already displayed.
+set hlsearch
+:nnoremap <CR> :nohlsearch<CR><CR>
