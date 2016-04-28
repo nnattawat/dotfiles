@@ -22,6 +22,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'airblade/vim-gitgutter'
 
 " Indentation
 set expandtab
@@ -49,9 +50,11 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 set number
 
+set nowrap
+
 " Open nerdtree
-map <Leader>n :NERDTreeToggle<CR>
-map <C-n> :NERDTreeFind<CR>
+noremap <Leader>n :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 " close vim if only open window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -122,7 +125,6 @@ if !exists('g:loaded_matchit')
   runtime macros/matchit.vim
 endif
 
-set cursorline
 " disable cursor line one insert mode
 " autocmd WinEnter    * set cursorline
 " autocmd WinLeave    * set nocursorline
@@ -149,3 +151,23 @@ nnoremap <Leader>b :buffers<CR>:buffer<space>
 " Press Space to turn off highlighting and clear any message already displayed.
 set hlsearch
 :nnoremap <CR> :nohlsearch<CR><CR>
+
+" quick search
+noremap <C-f> /<C-R><C-W><CR>
+
+" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Set statusline
+set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+set laststatus=2
+
+" prompt Ack
+noremap <Leader>f :Ack<space><C-R><C-W><space>
