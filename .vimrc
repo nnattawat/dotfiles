@@ -28,6 +28,8 @@ Plugin 'airblade/vim-gitgutter'
 set expandtab
 set tabstop=2
 set shiftwidth=2
+" showing special char
+set listchars=tab:>-,trail:.,extends:>,precedes:<
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,8 +63,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " colorscheme Tomorrow-Night-Bright
 colorscheme vividchalk
-:highlight Comment ctermbg=none ctermfg=darkcyan
-:highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight Comment ctermbg=none ctermfg=darkcyan
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 
 
 "refresh all buffers
@@ -171,3 +174,11 @@ set laststatus=2
 
 " prompt Ack
 noremap <Leader>f :Ack<space><C-R><C-W><space>
+
+" Move lines or blocks
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
