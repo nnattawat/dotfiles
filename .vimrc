@@ -61,7 +61,7 @@ set nowrap
 
 " Open nerdtree
 noremap <Leader>n :NERDTreeToggle<CR>
-noremap <C-n> :NERDTreeFind<CR>
+noremap <Leader>nf :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 " close vim if only open window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
