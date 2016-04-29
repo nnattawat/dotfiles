@@ -27,6 +27,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'tpope/vim-surround'
 
 " Indentation
 set expandtab
@@ -157,7 +158,7 @@ set hlsearch
 :nnoremap <CR> :nohlsearch<CR><CR>
 
 " quick search
-noremap <C-f> /<C-R><C-W><CR>
+noremap <C-f> /<C-R><C-W>
 
 " Syntastic config
 set statusline+=%#warningmsg#
