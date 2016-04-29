@@ -17,12 +17,16 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
+
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-Plugin 'tpope/vim-vividchalk'
+
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'godlygeek/tabular'
+Plugin 'vim-airline/vim-airline'
 
 " Indentation
 set expandtab
@@ -61,8 +65,7 @@ let NERDTreeShowHidden=1
 " close vim if only open window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" colorscheme Tomorrow-Night-Bright
-colorscheme vividchalk
+colorscheme jellybeans
 highlight Comment ctermbg=none ctermfg=darkcyan
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
@@ -182,3 +185,11 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Tabularize key mapping
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
