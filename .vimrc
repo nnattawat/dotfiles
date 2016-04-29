@@ -26,7 +26,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
-Plugin 'vim-airline/vim-airline'
+Plugin 'jeetsukumaran/vim-buffergator'
 
 " Indentation
 set expandtab
@@ -73,8 +73,9 @@ highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 
 "refresh all buffers
 noremap <Leader>u :bufdo e!<ENTER>
-
 noremap <Leader>B :bufdo<space>
+" Menu for the buffers
+nnoremap <F5> :buffers<CR>:buffer<space>
 
 "Setup code folding
 set foldmethod=indent
@@ -150,9 +151,6 @@ vmap r "_dP"
 " new tab
 noremap tn :tabnew<CR>
 noremap td :tabclose<CR>
-
-" Menu for the buffers
-nnoremap <Leader>b :buffers<CR>:buffer<space>
 
 " Press Space to turn off highlighting and clear any message already displayed.
 set hlsearch
