@@ -86,7 +86,7 @@ set nofoldenable
 set foldlevel=1
 
 "Set key waiting time
-set timeoutlen=200
+set timeoutlen=150
 
 "Set the column length
 " let &colorcolumn="100"
