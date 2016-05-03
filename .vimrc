@@ -8,6 +8,8 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'nanotech/jellybeans.vim'
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -22,7 +24,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
@@ -66,10 +67,10 @@ let NERDTreeShowHidden=1
 " close vim if only open window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-colorscheme tomorrow-night-eighties
-highlight Comment ctermbg=none ctermfg=darkcyan
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
+colorscheme jellybeans
+" highlight Comment ctermbg=none ctermfg=darkcyan
+" highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27 
 
 
 "refresh all buffers
