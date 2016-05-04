@@ -69,9 +69,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 colorscheme jellybeans
 " highlight Comment ctermbg=none ctermfg=darkcyan
-" highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27 
-
+highlight Normal ctermfg=252 ctermbg=black
 
 "refresh all buffers
 noremap <Leader>u :bufdo e!<ENTER>
@@ -192,11 +192,10 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
-
 " copy/paste from clipboard
 vnoremap cy "*y
-inoremap cp "*p
-inoremap c<S>p "*<S>p
+noremap cp "*p
+noremap c<S>p "*<S>p
 
 " Syntastic basic setup
 set statusline+=%#warningmsg#
