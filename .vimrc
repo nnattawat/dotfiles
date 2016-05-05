@@ -74,8 +74,9 @@ highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 highlight Normal ctermfg=252 ctermbg=black
 
 "refresh all buffers
-noremap <Leader>u :bufdo e!<ENTER>
-noremap <Leader>B :bufdo<space>
+noremap <Leader>bu :bufdo e!<ENTER>
+noremap <Leader>bd :bufdo<space>
+
 " Menu for the buffers
 nnoremap <F5> :buffers<CR>:buffer<space>
 
