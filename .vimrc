@@ -174,7 +174,7 @@ let g:syntastic_check_on_wq = 0
 
 " Set statusline
 set laststatus=2
-set statusline=\ %f\ %m%r%h%w\ %=\ [%l\/%L]\ 
+set statusline=\ %f\ %m%r%h%w\ %=\ %p%%\ [%l\/%L]\ 
 
 " prompt Ack
 noremap <Leader>f :Ack<space><C-R><C-W><space>
