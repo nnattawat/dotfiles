@@ -70,7 +70,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 colorscheme jellybeans
 " highlight Comment ctermbg=none ctermfg=darkcyan
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
-highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27 
+highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 highlight Normal ctermfg=252 ctermbg=black
 
 "refresh all buffers
@@ -173,8 +173,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Set statusline
-set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 set laststatus=2
+set statusline=\ %f\ %m%r%h%w\ %=\ [%l\/%L]\ 
 
 " prompt Ack
 noremap <Leader>f :Ack<space><C-R><C-W><space>
