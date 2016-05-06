@@ -157,7 +157,7 @@ noremap td :tabclose<CR>
 
 " Press Space to turn off highlighting and clear any message already displayed.
 set hlsearch
-:nnoremap <CR> :nohlsearch<CR>
+:nnoremap <space> :nohlsearch<CR>
 
 " quick search
 noremap <C-f> /<C-R><C-W>
