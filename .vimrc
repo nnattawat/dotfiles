@@ -88,7 +88,7 @@ set nofoldenable
 set foldlevel=1
 
 "Set key waiting time
-set timeoutlen=150
+set timeoutlen=200
 
 "Set the column length
 " let &colorcolumn="100"
@@ -175,7 +175,7 @@ let g:syntastic_check_on_wq = 0
 
 " Set statusline
 set laststatus=2
-set statusline=\ %f\ %m%r%h%w\ %=\ c%c\ l%p%%\ [%l\/%L]\ 
+set statusline=\ %f\ %m%r%h%w\ %=\ %c\ %p%%\ [%l\/%L]\ 
 
 " prompt Ack
 noremap <Leader>f :Ack<space><C-R><C-W><space>
@@ -191,8 +191,8 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Tabularize key mapping
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>ac :Tabularize /:\zs<CR>
+vmap <Leader>ac :Tabularize /:\zs<CR>
 
 " copy/paste from clipboard
 vnoremap cy "*y
