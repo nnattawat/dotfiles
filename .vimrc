@@ -72,13 +72,14 @@ colorscheme jellybeans
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 highlight Normal ctermfg=252 ctermbg=black
+" highlight StatusLine ctermbg=1 ctermfg=254
 
 "refresh all buffers
 noremap <Leader>bu :bufdo e!<ENTER>
 noremap <Leader>bd :bufdo<space>
 
 " Menu for the buffers
-nnoremap <F5> :buffers<CR>:buffer<space>
+noremap <F5> :buffers<CR>:buffer<space>
 
 "Setup code folding
 set foldmethod=indent
@@ -174,7 +175,7 @@ let g:syntastic_check_on_wq = 0
 
 " Set statusline
 set laststatus=2
-set statusline=\ %f\ %m%r%h%w\ %=\ %p%%\ [%l\/%L]\ 
+set statusline=\ %f\ %m%r%h%w\ %=\ c%c\ l%p%%\ [%l\/%L]\ 
 
 " prompt Ack
 noremap <Leader>f :Ack<space><C-R><C-W><space>
