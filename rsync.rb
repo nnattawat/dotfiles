@@ -42,6 +42,7 @@ sources_destinations_mapping = [
 	["/Users/nattawatnonsung/.gitconfig", des_path],
 	["#{sublime_path}Default\\ \\(OSX\\).sublime-keymap", des_path],
   ["/Users/nattawatnonsung/Workspace/thebookingbutton/.git/hooks/pre-commit", des_path],
+  ["/Users/nattawatnonsung/Workspace/thebookingbutton/.git/hooks/prepare-commit-msg", des_path],
   ["/Users/nattawatnonsung/.vimrc", des_path],
   ["/Users/nattawatnonsung/.bash_profile", des_path],
   ["/Users/nattawatnonsung/Workspace/playground/rsync/rsync.rb", des_path],
