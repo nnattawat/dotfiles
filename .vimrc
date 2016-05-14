@@ -8,7 +8,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'kristijanhusak/vim-hybrid-material'
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
@@ -67,7 +67,8 @@ let NERDTreeShowHidden=1
 " close vim if only open window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-colorscheme jellybeans
+set background=dark
+colorscheme hybrid_material
 " highlight Comment ctermbg=none ctermfg=darkcyan
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
