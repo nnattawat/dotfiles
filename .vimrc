@@ -67,6 +67,7 @@ let NERDTreeShowHidden=1
 " close vim if only open window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+set background=dark
 colorscheme hybrid_reverse
 " highlight Comment ctermbg=none ctermfg=darkcyan
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
