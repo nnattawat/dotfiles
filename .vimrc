@@ -73,7 +73,7 @@ colorscheme hybrid_reverse
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 highlight Normal ctermfg=252 ctermbg=black
-" highlight StatusLine ctermbg=1 ctermfg=254
+highlight StatusLine ctermbg=black ctermfg=7
 
 "refresh all buffers
 noremap <Leader>bu :bufdo e!<ENTER>
