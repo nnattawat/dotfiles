@@ -28,7 +28,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/ZoomWin'
 
 " Indentation
 set expandtab
@@ -211,3 +211,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+" Map file commands with Shift
+:command Wq wq
+:command W w
+:command Q q
+
