@@ -36,6 +36,12 @@ set tabstop=2
 set shiftwidth=2
 " showing special char
 set listchars=tab:>-,trail:.,extends:>,precedes:<
+" Display incomplete commands."
+set showcmd
+" Display the mode you're in.
+set showmode
+" Intuitive backspacing.
+set backspace=indent,eol,start
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -213,7 +219,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
 " Map file commands with Shift
-:command Wq wq
-:command W w
-:command Q q
+command! Wq wq
+command! W w
+command! Q q
 
