@@ -34,10 +34,17 @@ esac
 
 BRANCH_PREFIX=`git rev-parse --abbrev-ref HEAD | cut -c 1-8`
 FILE=`cat "$1"`
+
 if [[ $BRANCH_PREFIX != BBN*  ]] ;
 then
   BRANCH_PREFIX="[NO CARD]"
 fi
+
+if [[ $FILE == $BRANCH_PREFIX*  ]]
+then
+  exit
+fi
+
 echo "$BRANCH_PREFIX: $FILE" > "$1"
 
 # SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
