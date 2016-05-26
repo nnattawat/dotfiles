@@ -75,11 +75,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 set background=dark
 colorscheme hybrid_reverse
-" highlight Comment ctermbg=none ctermfg=darkcyan
+highlight Comment ctermbg=none ctermfg=246
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight LineNr ctermfg=242
 highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 highlight Normal ctermfg=252 ctermbg=black
-highlight StatusLine ctermbg=black ctermfg=7
+highlight StatusLine ctermbg=254 ctermfg=241
+highlight StatusLineNC ctermbg=248 ctermfg=236
 
 "refresh all buffers
 noremap <Leader>bu :bufdo e!<ENTER>
