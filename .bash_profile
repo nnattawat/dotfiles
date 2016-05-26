@@ -166,16 +166,17 @@ complete -F _complete_goto_folders goto
 search() {
 KEYWORD=$1
 FOLDER=$2
-if [ -z "$KEYWORD" ] && [ -z "$FOLDER" ]
+if [ -z "$KEYWORD"   ]
 then
-  echo "search folder was not given"
-  return 1
+  echo "please give keyword"
+  exit 1
 fi
-if [ -z "$FOLDER" ]
+if [ -z "$FOLDER"   ]
 then
   FOLDER="."
 fi
-grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -nrI $KEYWORD $FOLDER
+
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -nriI "$KEYWORD" $FOLDER
 }
 
 ### Added by the Heroku Toolbelt
@@ -184,7 +185,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 alias ctags='/usr/local/bin/ctags'
 
 # Docker setup
-eval "$(docker-machine env tbb)"
+# eval "$(docker-machine env tbb)"
 alias dm='docker-machine'
 alias dc='docker-compose'
 alias d='docker'
