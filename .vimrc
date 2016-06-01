@@ -202,6 +202,8 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>ac :Tabularize /:\zs<CR>
 vmap <Leader>ac :Tabularize /:\zs<CR>
+nmap <Leader>ap :Tabularize /\|<CR>
+vmap <Leader>ap :Tabularize /\|<CR>
 
 " copy/paste from clipboard
 vnoremap cy "*y
