@@ -27,7 +27,6 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
-Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'vim-scripts/ZoomWin'
 
 " Indentation
@@ -127,9 +126,14 @@ map <Down> <Nop>
 let NERDTreeShowHidden=1
 let g:ctrlp_show_hidden = 1
 
+" CtrlP mapping
+nmap <Leader>b :CtrlPBuffer<cr>
+nmap <leader>r :CtrlPMRU<cr>
+
 "Ignore files -  CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 
 "Add extra space on comment line
 let NERDSpaceDelims=0
