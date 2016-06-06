@@ -230,3 +230,4 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 command! Wq wq
 command! W w
 command! Q q
+nmap <S-z> :w<CR>
