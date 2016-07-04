@@ -87,7 +87,7 @@ noremap <Leader>bu :bufdo e!<ENTER>
 noremap <Leader>bd :bufdo<space>
 
 " Menu for the buffers
-noremap <F5> :buffers<CR>:buffer<space>
+noremap <F5> :buffers<CR>:
 
 "Setup code folding
 set foldmethod=indent
@@ -173,9 +173,6 @@ noremap td :tabclose<CR>
 set hlsearch
 :nnoremap <space> :nohlsearch<CR>
 
-" quick search
-noremap <C-f> /<C-R><C-W>
-
 " Syntastic config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -230,4 +227,3 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 command! Wq wq
 command! W w
 command! Q q
-nmap <S-z> :w<CR>
