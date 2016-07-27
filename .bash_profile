@@ -45,6 +45,7 @@ export PATH="/usr/local/git/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 
 export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:$HOME/bin
 export HISTCONTROL=ignoredups:erasedups
 
 alias brspec='bin/rspec'
