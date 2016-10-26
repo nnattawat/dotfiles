@@ -31,7 +31,6 @@ export EDITOR=vim
 
 source ~/git-completion.bash
 source ~/.git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
@@ -83,31 +82,6 @@ for branch in $local_branches; do
 done
 }
 
-reload_db() {
-environment=($@)
-possible_env='test dev development'
-if [[ ! $environment || ! $possible_env =~  $environment ]]; then
-  while true; do
-    read -p "load schema for which env? (test/dev/cancel/c) " answer
-    case $answer in
-      test | dev ) environment=$answer; break;;
-      c | cancel ) return;;
-      * ) echo "I don't understand...";;
-    esac
-  done
-fi
-case $environment in
-  [dev]*) environment=development;;
-esac
-case $environment in
-  development | test )
-    bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
-    bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
-    printf "$Wine $environment DB has been recreated.\n";
-  ;;
-esac
-}
-
 reload_data_tbb() {
 environment=($@)
 possible_env='test dev prod development production'
@@ -126,15 +100,23 @@ case $environment in
   [prod]*) environment=production;;
 esac
 case $environment in
-  test )  printf "$Green$FullStar$NC rake db:schema:load\n";
+  test )
+    printf "$Green$FullStar$NC rake db:drop\n";
+    bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
+    printf "$Green$FullStar$NC rake db:create\n";
+    bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
+    printf "$Green$FullStar$NC rake db:schema:load\n";
     bundle exec rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC Schema loaded.\n";
     printf "\n$Wine $environment environement ready! $Wine\n";
     ;;
   development | production )
+    printf "$Green$FullStar$NC rake db:drop\n";
+    bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
+    printf "$Green$FullStar$NC rake db:create\n";
+    bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
     printf "$Green$FullStar$NC rake db:schema:load\n";
     bundle exec rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
-    printf "$Green$FullStar$NC Schema loaded.\n";
     printf "$Green$FullStar$NC rake db:seed RAILS_ENV=$environment\n";
     bundle exec rake db:seed RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC Seed loaded.\n";
@@ -203,3 +185,5 @@ sync_dot_files () {
 vundle () {
   vim +PluginInstall +qall
 }
+
+eval "$(nodenv init -)"
