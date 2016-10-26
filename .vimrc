@@ -29,6 +29,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 Plugin 'vim-scripts/ZoomWin'
 
+Plugin 'thoughtbot/vim-rspec'
+
 " Indentation
 set expandtab
 set tabstop=2
@@ -227,3 +229,10 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 command! Wq wq
 command! W w
 command! Q q
+
+" RSpec.vim mappings
+map <Leader>sf :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>sl :call RunLastSpec()<CR>
+map <Leader>sa :call RunAllSpecs()<CR>
+let g:rspec_command = "!bin/rspec {spec}"
