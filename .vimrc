@@ -31,6 +31,7 @@ Plugin 'vim-scripts/ZoomWin'
 
 Plugin 'thoughtbot/vim-rspec'
 
+
 " Indentation
 set expandtab
 set tabstop=2
