@@ -35,7 +35,8 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_DESCRIBE_STYLE="branch"
-PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+
+PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -129,23 +130,6 @@ case $environment in
     ;;
 esac
 }
-
-# function goto (working directory)
-# INFO: You should change 'Work' to your working directory
-#
-goto() {
-cd $HOME/Workspace/$1
-}
-# Completion for goto
-#
-_complete_goto_folders () {
-  COMPREPLY=()
-  cur="${COMP_WORDS[COMP_CWORD]}"
-  comp_goto_folders=`/bin/ls $HOME/Workspace/`
-  COMPREPLY=( $(compgen -W "$comp_goto_folders" -- $cur))
-  return 0
-}
-complete -F _complete_goto_folders goto
 
 search() {
 KEYWORD=$1
