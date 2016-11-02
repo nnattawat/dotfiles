@@ -31,6 +31,9 @@ export EDITOR=vim
 
 source ~/git-completion.bash
 source ~/.git-prompt.sh
+
+source ~/tmux.completion.bash
+
 export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
@@ -144,7 +147,7 @@ then
   FOLDER="."
 fi
 
-grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -nriI "$KEYWORD" $FOLDER
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,./log,./node_modules,/.vendor} -nriI "$KEYWORD" $FOLDER
 }
 
 ### Added by the Heroku Toolbelt
