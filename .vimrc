@@ -210,8 +210,8 @@ nmap <Leader>ap :Tabularize /\|<CR>
 vmap <Leader>ap :Tabularize /\|<CR>
 
 " copy/paste from clipboard
-vnoremap y "*y
-noremap p "*p
+vnoremap cy "*y
+noremap cp "*p
 noremap c<S>p "*<S>p
 
 " Syntastic basic setup
