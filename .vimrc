@@ -31,6 +31,8 @@ Plugin 'vim-scripts/ZoomWin'
 
 Plugin 'thoughtbot/vim-rspec'
 
+" Elixir integration
+Plugin 'elixir-lang/vim-elixir'
 
 " Indentation
 set expandtab
