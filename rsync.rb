@@ -35,6 +35,19 @@ def push_to_git new_files, local_path
   end
 end
 
+def compare_and_sync(source, destination)
+	new_files = list_new_files source, destination
+	puts "\nSynce from #{source} to #{destination}"
+	if new_files.empty?
+		puts "Nothing changes from the last sync"
+	else
+		puts "Sync file(s):"
+		new_files.each{|file| puts "\t#{file}"}
+		syn_files source, destination
+    push_to_git new_files, destination
+	end
+end
+
 sublime_path = "/Users/nattawatnonsung/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/User/"
 des_path = "/Users/nattawatnonsung/Workspace/dotfiles/"
 # array of sources and distinations you want to sync
@@ -54,15 +67,11 @@ sublime_snippets = execute_cmd "ls #{sublime_path} | grep .sublime-snippet"
 sublime_snippets.split(/\n/).each do |filename|
 	sources_destinations_mapping << ["#{sublime_path+filename}", des_path]
 end
+
+threads = []
+
 sources_destinations_mapping.each do |source, destination|
-	new_files = list_new_files source, destination
-	puts "\nSynce from #{source} to #{destination}"
-	if new_files.empty?
-		puts "Nothing changes from the last sync"
-	else
-		puts "Sync file(s):"
-		new_files.each{|file| puts "\t#{file}"}
-		syn_files source, destination
-    push_to_git new_files, destination
-	end
+  threads << Thread.new { compare_and_sync(source, destination) }
 end
+
+threads.each { |t| t.join }

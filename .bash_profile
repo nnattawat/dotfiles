@@ -134,6 +134,16 @@ case $environment in
 esac
 }
 
+reload_all_tbb_db() {
+  reload_data_tbb dev &
+  pid1=$!
+  reload_data_tbb test &
+  pid2=$!
+
+  wait $pid1 || "reloading dev db error with status $?"
+  wait $pid2 || "reloading dev db error with status $?"
+}
+
 search() {
 KEYWORD=$1
 FOLDER=$2
