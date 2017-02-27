@@ -30,6 +30,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'vim-scripts/ZoomWin'
 
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-dispatch'
 
 " Elixir integration
 Plugin 'elixir-lang/vim-elixir'
@@ -238,4 +239,6 @@ map <Leader>sf :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
-let g:rspec_command = "!bin/rspec {spec}"
+" let g:rspec_command = "!bin/rspec {spec}"
+let g:rspec_command = "Dispatch bin/rspec {spec}"
+
