@@ -75,3 +75,4 @@ sources_destinations_mapping.each do |source, destination|
 end
 
 threads.each { |t| t.join }
+
