@@ -105,31 +105,26 @@ case $environment in
 esac
 case $environment in
   test )
-    printf "$Green$FullStar$NC rake db:drop\n";
+    printf "$Green$FullStar$NC rake db:drop RAILS_ENV=$environment\n";
     bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
-    printf "$Green$FullStar$NC rake db:create\n";
+    printf "$Green$FullStar$NC rake db:create RAILS_ENV=$environment\n";
     bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
-    printf "$Green$FullStar$NC rake db:schema:load\n";
+    printf "$Green$FullStar$NC rake db:schema:load RAILS_ENV=$environment\n";
     bundle exec rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC Schema loaded.\n";
-    printf "\n$Wine $environment environement ready! $Wine\n";
+    printf "\n$Wine $environment environment ready! $Wine\n";
     ;;
   development | production )
-    printf "$Green$FullStar$NC rake db:drop\n";
+    printf "$Green$FullStar$NC rake db:drop RAILS_ENV=$environment\n";
     bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
-    printf "$Green$FullStar$NC rake db:create\n";
+    printf "$Green$FullStar$NC rake db:create RAILS_ENV=$environment\n";
     bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
-    printf "$Green$FullStar$NC rake db:schema:load\n";
+    printf "$Green$FullStar$NC rake db:schema:load RAILS_ENV=$environment\n";
     bundle exec rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC rake db:seed RAILS_ENV=$environment\n";
     bundle exec rake db:seed RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC Seed loaded.\n";
-    if [ -f script/utils/create_property.rb ];then
-      printf "$Green$FullStar$NC rails runner script/utils/create_property.rb\n";
-      bundle exec rails runner script/utils/create_property.rb RAILS_ENV=$environment 1>/dev/null
-      printf "$Green$FullStar$NC Property loaded.\n";
-    fi
-    printf "\n$Wine $environment environement ready! $Wine\n";
+    printf "\n$Wine $environment environment ready! $Wine\n";
     ;;
 esac
 }
