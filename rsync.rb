@@ -63,7 +63,8 @@ sources_destinations_mapping = [
   ["/Users/nattawatnonsung/Workspace/playground/jquery/Vagrantfile", des_path],
   ["/Users/nattawatnonsung/Workspace/playground/jquery/bootstrap.sh", des_path],
   ["/Users/nattawatnonsung/.atom/keymap.cson", des_path],
-  ["/Users/nattawatnonsung/.atom/styles.less", des_path]
+  ["/Users/nattawatnonsung/.atom/styles.less", des_path],
+  ["/Users/nattawatnonsung/.atom/init.coffee", des_path]
 ]
 sublime_snippets = execute_cmd "ls #{sublime_path} | grep .sublime-snippet"
 sublime_snippets.split(/\n/).each do |filename|

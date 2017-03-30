@@ -57,7 +57,7 @@
   'ctrl-s': 'pane:split-down'
 
 'atom-workspace':
-  'ctrl-w J': 'move-panes:move-down'
-  'ctrl-w K': 'move-panes:move-up'
-  'ctrl-w H': 'move-panes:move-left'
-  'ctrl-w L': 'move-panes:move-right'
+  'ctrl-cmd-J': 'move-panes:move-down'
+  'ctrl-cmd-K': 'move-panes:move-up'
+  'ctrl-cmd-H': 'move-panes:move-left'
+  'ctrl-cmd-L': 'move-panes:move-right'
