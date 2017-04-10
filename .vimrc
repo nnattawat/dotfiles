@@ -240,5 +240,3 @@ map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
 " let g:rspec_command = "!bin/rspec {spec}"
 let g:rspec_command = "Dispatch bin/rspec {spec}"
-
-
