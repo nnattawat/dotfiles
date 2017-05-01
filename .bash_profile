@@ -29,8 +29,9 @@ NC="\e[0m"              # Color Reset
 
 export EDITOR=vim
 
-source ~/git-completion.bash
-source ~/.git-prompt.sh
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 source ~/tmux.completion.bash
 
@@ -177,5 +178,3 @@ sync_dot_files () {
 vundle () {
   vim +PluginInstall +qall
 }
-
-eval "$(nodenv init -)"
