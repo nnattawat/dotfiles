@@ -1,3 +1,4 @@
+set clipboard=unnamed
 set nocompatible              " be iMproved, required
 
 " set the runtime path to include Vundle and initialize
@@ -210,11 +211,6 @@ nmap <Leader>ac :Tabularize /:\zs<CR>
 vmap <Leader>ac :Tabularize /:\zs<CR>
 nmap <Leader>ap :Tabularize /\|<CR>
 vmap <Leader>ap :Tabularize /\|<CR>
-
-" copy/paste from clipboard
-vnoremap cy "*y
-noremap cp "*p
-noremap c<S>p "*<S>p
 
 " Syntastic basic setup
 set statusline+=%#warningmsg#
