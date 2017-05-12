@@ -71,6 +71,8 @@ FullStar="★ "
 Wine="🍷 "
 
 clear_local_branches() {
+git remote update --prune;
+
 remote_branches=`git branch -r --no-color --list | grep -v HEAD | sed -e 's/  origin\///g'`
 local_branches=`git branch --no-color | sed -e 's/[ *]//g'`
 
@@ -87,7 +89,7 @@ for branch in $local_branches; do
 done
 }
 
-reload_data_tbb() {
+reload_rails_data() {
 environment=($@)
 possible_env='test dev prod development production'
 if [[ ! $environment || ! $possible_env =~  $environment ]]; then
@@ -107,33 +109,33 @@ esac
 case $environment in
   test )
     printf "$Green$FullStar$NC rake db:drop RAILS_ENV=$environment\n";
-    bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
+    bin/rake db:drop RAILS_ENV=$environment>/dev/null;
     printf "$Green$FullStar$NC rake db:create RAILS_ENV=$environment\n";
-    bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
+    bin/rake db:create RAILS_ENV=$environment>/dev/null;
     printf "$Green$FullStar$NC rake db:schema:load RAILS_ENV=$environment\n";
-    bundle exec rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
+    bin/rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC Schema loaded.\n";
     printf "\n$Wine $environment environment ready! $Wine\n";
     ;;
   development | production )
     printf "$Green$FullStar$NC rake db:drop RAILS_ENV=$environment\n";
-    bundle exec rake db:drop RAILS_ENV=$environment>/dev/null;
+    bin/rake db:drop RAILS_ENV=$environment>/dev/null;
     printf "$Green$FullStar$NC rake db:create RAILS_ENV=$environment\n";
-    bundle exec rake db:create RAILS_ENV=$environment>/dev/null;
+    bin/rake db:create RAILS_ENV=$environment>/dev/null;
     printf "$Green$FullStar$NC rake db:schema:load RAILS_ENV=$environment\n";
-    bundle exec rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
+    bin/rake db:schema:load RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC rake db:seed RAILS_ENV=$environment\n";
-    bundle exec rake db:seed RAILS_ENV=$environment 1>/dev/null;
+    bin/rake db:seed RAILS_ENV=$environment 1>/dev/null;
     printf "$Green$FullStar$NC Seed loaded.\n";
     printf "\n$Wine $environment environment ready! $Wine\n";
     ;;
 esac
 }
 
-reload_all_tbb_db() {
-  reload_data_tbb dev &
+reload_all_rails_db() {
+  reload_rails_data dev &
   pid1=$!
-  reload_data_tbb test &
+  reload_rails_data test &
   pid2=$!
 
   wait $pid1 || "reloading dev db error with status $?"

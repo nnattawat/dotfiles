@@ -19,33 +19,32 @@
 #
 # The third example adds a Signed-off-by line to the message, that can
 # still be edited.  This is rarely a good idea.
-
 case "$2,$3" in
   merge,)
     /usr/bin/perl -i.bak -ne 's/^/# /, s/^# #/#/ if /^Conflicts/ .. /#/; print' "$1" ;;
 
-# ,|template,)
-#   /usr/bin/perl -i.bak -pe '
-#      print "\n" . `git diff --cached --name-status -r`
-#	 if /^#/ && $first++ == 0' "$1" ;;
+  # ,|template,)
+    #   /usr/bin/perl -i.bak -pe '
+    #      print "\n" . `git diff --cached --name-status -r`
+    # if /^#/ && $first++ == 0' "$1" ;;
 
   *) ;;
 esac
 
-BRANCH_PREFIX=`git rev-parse --abbrev-ref HEAD | cut -c 1-8`
+BRANCH_PREFIX=`git rev-parse --abbrev-ref HEAD | awk '{split($0,a,"-"); print a[1]"-"a[2]}'`
 FILE=`cat "$1"`
 
-if [[ $BRANCH_PREFIX != BBN*  ]] ;
+if [[ $BRANCH_PREFIX != ERICAMVP*   ]] ;
 then
   BRANCH_PREFIX="[NO CARD]"
 fi
 
-if [[ $FILE == $BRANCH_PREFIX*  ]]
+if [[ $FILE == $BRANCH_PREFIX*   ]]
 then
   exit
 fi
 
-if [[ $FILE == *"$BRANCH_PREFIX"*  ]]
+if [[ $FILE == *"$BRANCH_PREFIX"*   ]]
 then
   echo "$BRANCH_PREFIX: $FILE" > "$1"
 fi

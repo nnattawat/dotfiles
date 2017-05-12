@@ -61,3 +61,6 @@
   'ctrl-cmd-K': 'move-panes:move-up'
   'ctrl-cmd-H': 'move-panes:move-left'
   'ctrl-cmd-L': 'move-panes:move-right'
+
+'.platform-darwin atom-workspace':
+  'cmd-t': 'platformio-ide-terminal:focus'
