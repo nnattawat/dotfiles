@@ -40,6 +40,11 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_DESCRIBE_STYLE="branch"
 
+# Erica pass
+export PASSWORD_STORE_DIR=/Users/nnattawat/.ericapasswordstore/erica-password-store
+
+eval "$(hub alias -s)"
+
 PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -180,3 +185,5 @@ sync_dot_files () {
 vundle () {
   vim +PluginInstall +qall
 }
+
+eval "$(direnv hook bash)"

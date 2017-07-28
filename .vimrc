@@ -236,4 +236,4 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
 map <Leader>sa :call RunAllSpecs()<CR>
 " let g:rspec_command = "!rspec {spec}"
-let g:rspec_command = "Dispatch bin/rspec {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
