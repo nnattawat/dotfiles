@@ -33,6 +33,10 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'slim-template/vim-slim.git'
 
+" React
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
 " Elixir integration
 Plugin 'elixir-lang/vim-elixir'
 
@@ -48,6 +52,10 @@ set showcmd
 set showmode
 " Intuitive backspacing.
 set backspace=indent,eol,start
+
+" Highlight cursor line
+highlight clear CursorLineNR
+set cursorline
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
