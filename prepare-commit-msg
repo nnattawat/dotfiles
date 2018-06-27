@@ -31,13 +31,9 @@ case "$2,$3" in
   *) ;;
 esac
 
-BRANCH_PREFIX=`git rev-parse --abbrev-ref HEAD | awk '{split($0,a,"-"); print a[1]"-"a[2]}'`
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+BRANCH_PREFIX=`echo "$CURRENT_BRANCH" | sed 's/\([A-Z]*\-[0-9]*\).*/\1/'`
 FILE=`cat "$1"`
-
-if [[ $BRANCH_PREFIX != ERICAMVP*   ]] ;
-then
-  BRANCH_PREFIX="[NO CARD]"
-fi
 
 if [[ $FILE == $BRANCH_PREFIX*   ]]
 then

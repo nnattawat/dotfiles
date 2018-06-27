@@ -8,7 +8,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'flazz/vim-colorschemes'
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
@@ -33,9 +33,12 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'slim-template/vim-slim.git'
 
+Plugin 'tpope/vim-surround'
+
 " React
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'styled-components/vim-styled-components'
 
 " Elixir integration
 Plugin 'elixir-lang/vim-elixir'
@@ -52,10 +55,6 @@ set showcmd
 set showmode
 " Intuitive backspacing.
 set backspace=indent,eol,start
-
-" Highlight cursor line
-highlight clear CursorLineNR
-set cursorline
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,14 +87,18 @@ let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 set background=dark
-colorscheme hybrid_reverse
+colorscheme Tomorrow-Night-Bright
 highlight Comment ctermbg=none ctermfg=246
-" highlight ColorColumn ctermbg=235 guibg=#2c2d27
-highlight LineNr ctermfg=242
+
+" Highlight cursor line
+set cursorline
+
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight LineNr ctermfg=40
 highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
-highlight Normal ctermfg=252 ctermbg=black
-highlight StatusLine ctermbg=254 ctermfg=241
-highlight StatusLineNC ctermbg=248 ctermfg=236
+" highlight Normal ctermfg=252 ctermbg=black
+" highlight StatusLine ctermbg=254 ctermfg=241
+" highlight StatusLineNC ctermbg=248 ctermfg=236
 
 "refresh all buffers
 noremap <Leader>bu :bufdo e!<ENTER>
@@ -128,9 +131,6 @@ let g:SuperTabCrMapping=1
 "Setup ctags file
 set tags=./tags;
 
-"Ignore warning on angular directive
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-
 "Disable arrow keys
 map <Left> <Nop>
 map <Right> <Nop>
@@ -143,12 +143,11 @@ let g:ctrlp_show_hidden = 1
 
 " CtrlP mapping
 nmap <Leader>b :CtrlPBuffer<cr>
-nmap <leader>r :CtrlPMRU<cr>
+nmap <Leader>r :CtrlPMRU<cr>
 
 "Ignore files -  CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist'
 
 "Add extra space on comment line
 let NERDSpaceDelims=0
