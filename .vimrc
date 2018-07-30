@@ -27,7 +27,6 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
-Plugin 'vim-scripts/ZoomWin'
 
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'

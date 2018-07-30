@@ -9,7 +9,7 @@
 	trustExitCode = true
 [user]
 	name = nnonsung
-	email = armmer1@gmail.com
+	email = nnonsung@dius.com.au
 [alias]
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 lg2 = log --graph --pretty=format:'%Cred%h%Creset - %C(dim white)%aD%C(reset) %Cgreen(%cr) %C(bold blue)<%an>%Creset%n %C(yellow)%d%Creset %s' --abbrev-commit
@@ -31,6 +31,7 @@ sdtag = for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/
 
 [push]
 	default = current
+	followTags = true
 [merge]
 	defaultToUpstream = true
 [branch]

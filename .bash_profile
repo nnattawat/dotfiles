@@ -39,13 +39,13 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_DESCRIBE_STYLE="branch"
+PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
 
 # Erica pass
 export PASSWORD_STORE_DIR=/Users/nnattawat/.ericapasswordstore/erica-password-store
 
 eval "$(hub alias -s)"
 
-PROMPT_COMMAND='__git_ps1 "\w" "\\\$ "'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -187,6 +187,16 @@ vundle () {
 }
 
 eval "$(direnv hook bash)"
+
+port_pid () {
+  KILL_PORT=$1
+  lsof -ti :$KILL_PORT
+}
+
+kill_port () {
+  KILL_PORT=$1
+  kill $(lsof -ti :$KILL_PORT)
+}
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
