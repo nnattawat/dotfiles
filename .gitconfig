@@ -20,6 +20,7 @@ st = status
 pullr = pull --rebase
 co = checkout
 cm = commit
+cma = commit --amend --no-edit
 cp = cherry-pick
 rb = rebase
 diffm = diff origin/master..HEAD
