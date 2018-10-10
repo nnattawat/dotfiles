@@ -173,8 +173,15 @@ alias ctags='/usr/local/bin/ctags'
 alias dm='docker-machine'
 alias dc='docker-compose'
 alias d='docker'
+d_stop_containers () {
+  docker ps -aq | xargs docker rm -f
+}
 
-remove_dangling_containers () {
+d_remove_images () {
+  docker images -aq | xargs docker rmi -f
+}
+
+d_remove_dangling_containers () {
   docker images -q -f='dangling=true' | xargs docker rmi -f
 }
 
