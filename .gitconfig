@@ -24,6 +24,8 @@ cma = commit --amend --no-edit
 cp = cherry-pick
 rb = rebase
 diffm = diff origin/master..HEAD
+diffmnolock = diff origin/master..HEAD -- . ':(exclude)package-lock.json'
+diffnolock = diff  -- . ':(exclude)package-lock.json'
 addp = add -p
 myy = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all --since=yesterday --author=armmer1@gmail.com
 myf = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all --since='3 days ago' --author=armmer1@gmail.com
