@@ -17,7 +17,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Setup powerlivel9k prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs nvm)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs node_version)
 
 
 # Set list of themes to pick from when loading at random
