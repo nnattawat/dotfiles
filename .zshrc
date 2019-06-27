@@ -137,3 +137,71 @@ done
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# run nvm use when cd into a folder
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+# Docker setup
+alias dm='docker-machine'
+alias dc='docker-compose'
+alias d='docker'
+d_stop_containers () {
+  docker ps -aq | xargs docker rm -f
+}
+
+d_remove_images () {
+  docker images -aq | xargs docker rmi -f
+}
+
+d_remove_dangling_containers () {
+  docker images -q -f='dangling=true' | xargs docker rmi -f
+}
+
+vundle () {
+  vim +PluginInstall +qall
+}
+
+port_pid () {
+  KILL_PORT=$1
+  lsof -ti :$KILL_PORT
+}
+
+kill_port () {
+  KILL_PORT=$1
+  kill $(lsof -ti :$KILL_PORT)
+}
+
+search() {
+KEYWORD=$1
+FOLDER=$2
+if [ -z "$KEYWORD"   ]
+then
+  echo "please give keyword"
+  exit 1
+fi
+if [ -z "$FOLDER"   ]
+then
+  FOLDER="."
+fi
+
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,./log,./node_modules,/.vendor} -nriI "$KEYWORD" $FOLDER
+}
