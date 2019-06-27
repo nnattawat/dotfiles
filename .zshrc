@@ -160,6 +160,12 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+alias brspec='bin/rspec'
+alias brake='bin/rake'
+alias brails='bin/rails'
+
+alias postgres-start='brew services start postgresql'
+
 # Docker setup
 alias dm='docker-machine'
 alias dc='docker-compose'
@@ -205,3 +211,5 @@ fi
 
 grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,./log,./node_modules,/.vendor} -nriI "$KEYWORD" $FOLDER
 }
+
+eval "$(rbenv init -)"
