@@ -26,21 +26,24 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
 
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'tpope/vim-surround'
+
+" Rails
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'slim-template/vim-slim.git'
-
-Plugin 'tpope/vim-surround'
 
 " React
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'styled-components/vim-styled-components'
 
-" Elixir integration
+" Elixir
 Plugin 'elixir-lang/vim-elixir'
 
 " Indentation
@@ -103,6 +106,12 @@ highlight ExtraWhitespace ctermbg=235 guibg=#2c2d27
 "refresh all buffers
 noremap <Leader>bu :bufdo e!<ENTER>
 noremap <Leader>bd :bufdo<space>
+
+" git fugitive
+noremap <Leader>gst :Gstatus<ENTER>
+noremap <Leader>gd :Gdiff<ENTER>
+noremap <Leader>gb :Gblame<ENTER>
+noremap <Leader>glg :Glog<ENTER>
 
 " Menu for the buffers
 noremap <F5> :buffers<CR>:
@@ -186,16 +195,6 @@ noremap td :tabclose<CR>
 " Press Space to turn off highlighting and clear any message already displayed.
 set hlsearch
 :nnoremap <space> :nohlsearch<CR>
-
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Set statusline
 set laststatus=2
