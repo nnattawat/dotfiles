@@ -116,22 +116,11 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 clear_local_branches() {
-git remote update --prune;
-
-remote_branches=`git branch -r --no-color --list | grep -v HEAD | sed -e 's/  origin\///g'`
-local_branches=`git branch --no-color | sed -e 's/[ *]//g'`
-
-for branch in $local_branches; do
-  if [[ ! $remote_branches =~ $branch ]]; then
-    while true; do
-      read -p "Do you want to delete this branch: $branch ? (y/n [n]) " yn
-      case $yn in
-        [Yy]* ) git branch -D $branch; break;;
-        * ) break;;
-      esac
-    done
-  fi
-done
+  git fetch -p;
+  merged_branches=`git branch -vv | grep ': gone]' | awk '{print $1}'`;
+  for branch in $merged_branches; do
+    git branch -D $branch;
+  done
 }
 
 export NVM_DIR="$HOME/.nvm"
