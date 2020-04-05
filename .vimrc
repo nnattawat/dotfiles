@@ -33,9 +33,11 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'tpope/vim-surround'
 
-" Rails
-Plugin 'thoughtbot/vim-rspec'
+" Running test
+Plugin 'janko/vim-test'
 Plugin 'tpope/vim-dispatch'
+
+" Rails
 Plugin 'slim-template/vim-slim.git'
 
 " React

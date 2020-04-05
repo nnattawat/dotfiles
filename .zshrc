@@ -83,6 +83,9 @@ plugins=(
   dotenv
   osx
   tmux
+  aws
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
