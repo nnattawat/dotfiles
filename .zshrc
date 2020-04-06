@@ -162,11 +162,11 @@ alias postgres-start='brew services start postgresql'
 alias dm='docker-machine'
 alias dc='docker-compose'
 alias d='docker'
-d_stop_containers () {
+d_remove_containers () {
   docker ps -aq | xargs docker rm -f
 }
 
-d_remove_images () {
+d_remove_all_images () {
   docker images -aq | xargs docker rmi -f
 }
 
