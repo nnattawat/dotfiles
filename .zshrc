@@ -17,6 +17,8 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Setup powerlivel9k prompt
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs node_version)
 
 
@@ -86,6 +88,7 @@ plugins=(
   aws
   docker
   docker-compose
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
