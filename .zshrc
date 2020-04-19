@@ -177,10 +177,6 @@ d_remove_dangling_containers () {
   docker images -q -f='dangling=true' | xargs docker rmi -f
 }
 
-vundle () {
-  vim +PluginInstall +qall
-}
-
 port_pid () {
   KILL_PORT=$1
   lsof -ti :$KILL_PORT
@@ -204,7 +200,7 @@ then
   FOLDER="."
 fi
 
-grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,./log,./node_modules,/.vendor} -nriI "$KEYWORD" $FOLDER
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,./log,./node_modules,/.vendor/.dist} -nriI "$KEYWORD" $FOLDER
 }
 
 eval "$(rbenv init -)"
