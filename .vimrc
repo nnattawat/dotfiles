@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'flazz/vim-colorschemes'
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
@@ -20,12 +19,11 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'ervandew/supertab'
-
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+" Plug 'ervandew/supertab'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" coc extensions
+let g:coc_global_extensions = ['coc-tsserver', 'coc-html', 'coc-json', 'coc-css']
 
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
@@ -45,9 +43,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
-" Jekyll
-Plug 'tpope/vim-liquid'
 
 " Initialize plugin system
 call plug#end()
@@ -80,7 +75,6 @@ let NERDTreeShowHidden=1
 " close vim if only open window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-set background=dark
 colorscheme Tomorrow-Night-Bright
 highlight Comment ctermbg=none ctermfg=246
 
@@ -126,7 +120,7 @@ set wildmenu
 "Highlight matched word
 let g:ackhighlight = 1
 
-let g:SuperTabCrMapping=1
+" let g:SuperTabCrMapping=1
 
 "Setup ctags file
 set tags=./tags;
@@ -261,11 +255,11 @@ set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
