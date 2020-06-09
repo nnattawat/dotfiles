@@ -16,14 +16,19 @@ Plug 'ddollar/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/syntastic'
 Plug 'terryma/vim-multiple-cursors'
+
+" Syntax validation
+Plug 'scrooloose/syntastic'
 
 " Plug 'ervandew/supertab'
 
+" Highlight CSS color
+Plug 'lilydjwg/colorizer'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-html', 'coc-json', 'coc-css']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-html', 'coc-json', 'coc-css', 'coc-python']
 
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
@@ -49,8 +54,8 @@ call plug#end()
 
 " Indentation
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 " showing special char
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 " Display incomplete commands."
@@ -141,7 +146,7 @@ nmap <Leader>r :CtrlPMRU<cr>
 
 "Ignore files -  CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|coverage\|__pycache__\|.pytest_cache'
 
 "Add extra space on comment line
 let NERDSpaceDelims=0

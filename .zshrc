@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export SHELL=/bin/zsh
@@ -13,14 +20,7 @@ prompt_context() {}
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-# Setup powerlivel9k prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs node_version)
-
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -86,6 +86,7 @@ plugins=(
   osx
   tmux
   aws
+  terraform
   docker
   docker-compose
   kubectl
@@ -123,10 +124,7 @@ fi
 
 clear_local_branches() {
   git fetch -p;
-  merged_branches=`git branch -vv | grep ': gone]' | awk '{print $1}'`;
-  for branch in $merged_branches; do
-    git branch -D $branch;
-  done
+  git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D 
 }
 
 export NVM_DIR="$HOME/.nvm"
@@ -162,7 +160,6 @@ alias brails='bin/rails'
 alias postgres-start='brew services start postgresql'
 
 # Docker setup
-alias dm='docker-machine'
 alias dc='docker-compose'
 alias d='docker'
 d_remove_containers () {
@@ -202,5 +199,12 @@ fi
 
 grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,./log,./node_modules,/.vendor/.dist} -nriI "$KEYWORD" $FOLDER
 }
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(rbenv init -)"
