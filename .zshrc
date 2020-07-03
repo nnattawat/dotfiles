@@ -124,7 +124,7 @@ fi
 
 clear_local_branches() {
   git fetch -p;
-  git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D 
+  git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
 }
 
 export NVM_DIR="$HOME/.nvm"

@@ -28,7 +28,7 @@ Plug 'lilydjwg/colorizer'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-html', 'coc-json', 'coc-css', 'coc-python']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-html', 'coc-json', 'coc-css', 'coc-python', 'coc-prettier']
 
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
@@ -146,7 +146,7 @@ nmap <Leader>r :CtrlPMRU<cr>
 
 "Ignore files -  CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|coverage\|__pycache__\|.pytest_cache'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|coverage\|__pycache__\|.pytest_cache\|.webpack'
 
 "Add extra space on comment line
 let NERDSpaceDelims=0
