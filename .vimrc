@@ -146,7 +146,7 @@ nmap <Leader>r :CtrlPMRU<cr>
 
 "Ignore files -  CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|coverage\|__pycache__\|.pytest_cache\|.webpack'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|dist\|build\|coverage\|__pycache__\|.pytest_cache\|.webpack\|env\/lib'
 
 "Add extra space on comment line
 let NERDSpaceDelims=0
