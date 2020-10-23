@@ -22,6 +22,12 @@ prompt_context() {}
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Always allow load .env
+ZSH_DOTENV_PROMPT=false
+
+# Allow direnv to load .envrc file
+eval "$(direnv hook zsh)"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -86,10 +92,10 @@ plugins=(
   osx
   tmux
   aws
-  terraform
+  npm
+  yarn
   docker
   docker-compose
-  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -125,6 +131,10 @@ fi
 clear_local_branches() {
   git fetch -p;
   git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+}
+
+kill_sounds() {
+  sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`
 }
 
 export NVM_DIR="$HOME/.nvm"

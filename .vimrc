@@ -344,8 +344,9 @@ omap af <Plug>(coc-funcobj-a)
 nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
 
-" Add `:Format` command to format current buffer.
+" Add `:Format` command and <leader>ff to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+nmap <leader>fm :call CocAction('format')<CR>
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
