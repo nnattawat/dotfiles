@@ -58,7 +58,11 @@ sdtag = for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/
 	auto = 1
 
 [delta]
-    features = line-numbers
+    features = decorations
+
+[delta "decorations"]
+    file-style = bold yellow ul
+    file-decoration-style = none
 
 [interactive]
     diffFilter = delta --color-only
