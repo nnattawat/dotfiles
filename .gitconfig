@@ -1,4 +1,5 @@
 [core]
+    pager = delta
 	excludesfile = /Users/nattawatnonsung/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "sourcetree"]
@@ -55,3 +56,9 @@ sdtag = for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/
 	required = true
 [gc]
 	auto = 1
+
+[delta]
+    features = line-numbers
+
+[interactive]
+    diffFilter = delta --color-only
