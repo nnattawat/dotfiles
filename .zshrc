@@ -96,6 +96,7 @@ plugins=(
   yarn
   docker
   docker-compose
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
