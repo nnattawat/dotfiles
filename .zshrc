@@ -219,3 +219,43 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(rbenv init -)"
+
+# SiteMinder specific
+ecr_login() {
+registry=$1
+registry="${registry:-278521702583}"
+echo "Docker login into ECR on AWS account (${registry})"
+aws ecr get-login-password| docker login \
+    --username AWS \
+    --password-stdin $registry.dkr.ecr.us-west-2.amazonaws.com
+}
+
+
+# SiteMinder config
+export PATH=$PATH:$HOME/Workspace/siteminder/infrastructure-deploy
+export DOTENV=.env.playpen
+
+# open github repo in browser
+gopen() {
+  if [ -n "$1" ]; then
+    open "https://github.com/siteminder-au/${1}"
+    return 0
+  fi
+
+  repo=$(git remote -v | grep fetch | grep origin | sed -e's/.*github.com.//' | sed -e's/\.git.*//')
+
+  open "https://github.com/${repo}"
+}
+
+# open buildkite pipeline of the repo in browser
+kopen() {
+
+  if [ -n "$1" ]; then
+    open "https://buildkite.com/siteminder/${1}"
+    return 0
+  fi
+
+  repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
+
+  open "https://buildkite.com/siteminder/${repo}"
+}
