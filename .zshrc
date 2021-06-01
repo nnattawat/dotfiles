@@ -253,9 +253,9 @@ newpr() {
   repo=$(git remote -v | grep fetch | grep origin | sed -e's/.*github.com.//' | sed -e's/\.git.*//')
 
   if [ "$branch" = "develop" ]; then
-    open "https://github.com/${repo}/compare/master..${branch}"
+    open "https://github.com/${repo}/compare/master...${branch}"
   else 
-    open "https://github.com/${repo}/compare/develop..${branch}"
+    open "https://github.com/${repo}/compare/develop...${branch}"
   fi
 }
 
