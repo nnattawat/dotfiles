@@ -247,6 +247,18 @@ gopen() {
   open "https://github.com/${repo}"
 }
 
+# new pr on github repo in browser
+newpr() {
+  branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+  repo=$(git remote -v | grep fetch | grep origin | sed -e's/.*github.com.//' | sed -e's/\.git.*//')
+
+  if [ "$branch" = "develop" ]; then
+    open "https://github.com/${repo}/compare/master..${branch}"
+  else 
+    open "https://github.com/${repo}/compare/develop..${branch}"
+  fi
+}
+
 # open buildkite pipeline of the repo in browser
 kopen() {
 
