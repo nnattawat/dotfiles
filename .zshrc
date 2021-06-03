@@ -186,13 +186,13 @@ d_remove_dangling_containers () {
 }
 
 port_pid () {
-  KILL_PORT=$1
-  lsof -ti :$KILL_PORT
+  PORT=$1
+  lsof -ti :$PORT
 }
 
 kill_port () {
-  KILL_PORT=$1
-  kill $(lsof -ti :$KILL_PORT)
+  PORT=$1
+  kill $(lsof -ti :$PORT)
 }
 
 search() {
@@ -230,13 +230,12 @@ aws ecr get-login-password| docker login \
     --password-stdin $registry.dkr.ecr.us-west-2.amazonaws.com
 }
 
-
 # SiteMinder config
 export PATH=$PATH:$HOME/Workspace/siteminder/infrastructure-deploy
 export DOTENV=.env.playpen
 
 # open github repo in browser
-gopen() {
+gh_open() {
   if [ -n "$1" ]; then
     open "https://github.com/siteminder-au/${1}"
     return 0
@@ -248,7 +247,7 @@ gopen() {
 }
 
 # new pr on github repo in browser
-newpr() {
+new_pr() {
   branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
   repo=$(git remote -v | grep fetch | grep origin | sed -e's/.*github.com.//' | sed -e's/\.git.*//')
 
@@ -260,7 +259,7 @@ newpr() {
 }
 
 # open buildkite pipeline of the repo in browser
-kopen() {
+bk_open() {
 
   if [ -n "$1" ]; then
     open "https://buildkite.com/siteminder/${1}"
@@ -270,4 +269,13 @@ kopen() {
   repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
 
   open "https://buildkite.com/siteminder/${repo}"
+}
+
+# open buildkite pipeline of the repo in browser
+bk_open_branch() {
+
+  branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+  repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
+
+  open "https://buildkite.com/siteminder/${repo}/builds?branch=${branch}"
 }
