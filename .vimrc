@@ -62,6 +62,7 @@ syntax on
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 set number
+set relativenumber
 
 set nowrap
 

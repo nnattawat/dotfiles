@@ -89,7 +89,7 @@ eval "$(direnv hook zsh)"
 plugins=(
   git
   dotenv
-  osx
+  macos
   tmux
   aws
   npm
