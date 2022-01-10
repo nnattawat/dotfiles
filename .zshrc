@@ -164,11 +164,8 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-alias brspec='bin/rspec'
-alias brake='bin/rake'
-alias brails='bin/rails'
-
-alias postgres-start='brew services start postgresql'
+alias j='npx jest'
+alias jwi='npx jest -i --watch'
 
 # Docker setup
 alias dc='docker-compose'
