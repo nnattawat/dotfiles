@@ -24,9 +24,14 @@ cm = commit
 cma = commit --amend --no-edit
 cp = cherry-pick
 rb = rebase
-diffnolock = diff -- . ':(exclude)package-lock.json'
+diffnolock = "!f() { \
+  DIFF=${1:-}; \
+  git diff $DIFF -- . ':(exclude)package-lock.json'; \
+}; f"
 diffcomponents = "!f() { \
-  git diff $1 --dirstat-by-file=0 | sed -E 's/^[ 0-9. ]+% //g' | cut -d'/' -f 1-2 | uniq; \
+  DIFF=${1:-}; \
+  CUT_UNTIL=${2:-2}; \
+  git diff $DIFF --dirstat-by-file=0 | sed -E 's/^[ 0-9. ]+% //g' | cut -d'/' -f 1-$CUT_UNTIL | uniq; \
 }; f"
 myy = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all --since=yesterday --author=armmer1@gmail.com
 myf = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all --since='3 days ago' --author=armmer1@gmail.com
