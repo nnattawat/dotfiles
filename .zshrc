@@ -166,6 +166,7 @@ load-nvmrc
 
 alias j='npx jest'
 alias jwi='npx jest -i --watch'
+alias ji='node --inspect-brk ./node_modules/.bin/jest'
 
 # Docker setup
 alias dc='docker-compose'
@@ -250,8 +251,8 @@ new_pr() {
 
   if [ "$branch" = "develop" ]; then
     open "https://github.com/${repo}/compare/master...${branch}"
-  else 
-    open "https://github.com/${repo}/compare/develop...${branch}"
+  else
+    open "https://github.com/${repo}/pull/new/${branch}"
   fi
 }
 
