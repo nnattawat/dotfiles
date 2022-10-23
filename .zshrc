@@ -168,6 +168,8 @@ alias j='npx jest'
 alias jwi='npx jest -i --watch'
 alias ji='node --inspect-brk ./node_modules/.bin/jest'
 
+alias nr='npm run'
+
 # Docker setup
 alias dc='docker-compose'
 alias d='docker'
