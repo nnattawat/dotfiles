@@ -233,6 +233,8 @@ aws ecr get-login-password| docker login \
 # SiteMinder config
 export PATH=$PATH:$HOME/Workspace/siteminder/infrastructure-deploy
 export DOTENV=.env.playpen
+export AWS_SDK_LOAD_CONFIG=1
+export AWS_PROFILE=dev
 
 # open github repo in browser
 gh_open() {
