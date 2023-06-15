@@ -10,7 +10,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export SHELL=/bin/zsh
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/nnonsung/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Dont show username@host on powerline theme
 DEFAULT_USER=$USER
