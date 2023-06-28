@@ -137,6 +137,11 @@ clear_local_branches() {
   git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
 }
 
+refresh_local_branches() {
+  clear_local_branches;
+  git pull;
+}
+
 kill_sounds() {
   sudo kill -9 `ps ax|grep 'coreaudio[a-z]' | awk '{print $1}'`
 }
