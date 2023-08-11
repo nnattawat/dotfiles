@@ -59,6 +59,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 " GraphQL syntax
 Plug 'jparise/vim-graphql'
 
+" Github copilot
+Plug 'github/copilot.vim'
+
 " Initialize plugin system
 call plug#end()
 
