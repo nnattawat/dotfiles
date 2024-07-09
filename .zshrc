@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-alias vim="/usr/local/bin/vim"
+# alias vim="/usr/local/bin/vim"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -225,24 +225,15 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 eval "$(rbenv init -)"
-
-# SiteMinder specific
-ecr_login() {
-registry=$1
-registry="${registry:-278521702583}"
-echo "Docker login into ECR on AWS account (${registry})"
-aws ecr get-login-password| docker login \
-    --username AWS \
-    --password-stdin $registry.dkr.ecr.us-west-2.amazonaws.com
-}
 
 # SiteMinder config
 export PATH=$PATH:$HOME/Workspace/siteminder/infrastructure-deploy
 export DOTENV=.env.playpen
 export AWS_SDK_LOAD_CONFIG=1
 export AWS_PROFILE=dev
+
+# SiteMinder specific
 
 # open github repo in browser
 gh_open() {
@@ -289,3 +280,4 @@ bk_open_branch() {
 
   open "https://buildkite.com/siteminder/${repo}/builds?branch=${branch}"
 }
+

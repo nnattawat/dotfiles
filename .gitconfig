@@ -9,8 +9,8 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-	name = nnattawat
-	email = armmer1@gmail.com
+	name = Nattawat Nonsung
+	email = nattawat.nonsung@siteminder.com
 [alias]
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 lg2 = log --graph --pretty=format:'%Cred%h%Creset - %C(dim white)%aD%C(reset) %Cgreen(%cr) %C(bold blue)<%an>%Creset%n %C(yellow)%d%Creset %s' --abbrev-commit
@@ -71,3 +71,5 @@ sdtag = for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/
 
 [interactive]
     diffFilter = delta --color-only
+[init]
+	defaultBranch = master
