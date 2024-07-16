@@ -26,7 +26,11 @@ cp = cherry-pick
 rb = rebase
 diffnolock = "!f() { \
   DIFF=${1:-}; \
-  git diff $DIFF -- . ':(exclude)package-lock.json'; \
+  git diff $DIFF -- . ':!package-lock.json'; \
+}; f"
+shownolock = "!f() { \
+  DIFF=${1:-}; \
+  git show $DIFF -- . ':!package-lock.json'; \
 }; f"
 diffcomponents = "!f() { \
   DIFF=${1:-}; \
