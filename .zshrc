@@ -181,16 +181,13 @@ alias nr='npm run'
 # Docker setup
 alias dc='docker-compose'
 alias d='docker'
+d_stop_containers () {
+  CONTAINER_NAME_PREFIX=$1
+  docker ps -q --filter name=$CONTAINER_NAME_PREFIX | xargs docker stop
+}
 d_remove_containers () {
-  docker ps -aq | xargs docker rm -f
-}
-
-d_remove_all_images () {
-  docker images -aq | xargs docker rmi -f
-}
-
-d_remove_dangling_containers () {
-  docker images -q -f='dangling=true' | xargs docker rmi -f
+  CONTAINER_NAME_PREFIX=$1
+  docker ps -q --filter name=$CONTAINER_NAME_PREFIX | xargs docker stop && docker ps -aq --filter name=$CONTAINER_NAME_PREFIX | xargs docker remove
 }
 
 port_pid () {
