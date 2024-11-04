@@ -99,6 +99,7 @@ plugins=(
   docker
   docker-compose
   kubectl
+  python
 )
 
 source $ZSH/oh-my-zsh.sh
