@@ -23,7 +23,6 @@ prompt_context() {}
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Always allow load .env
 ZSH_DOTENV_PROMPT=false
@@ -278,3 +277,4 @@ bk_open_branch() {
   open "https://buildkite.com/siteminder/${repo}/builds?branch=${branch}"
 }
 
+eval "$(starship init zsh)"

@@ -1,5 +1,5 @@
 [core]
-    pager = delta
+  pager = delta
 	excludesfile = /Users/nattawatnonsung/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "sourcetree"]
@@ -10,7 +10,7 @@
 	trustExitCode = true
 [user]
 	name = Nattawat Nonsung
-	email = nattawat.nonsung@siteminder.com
+	email = armmer1@gmail.com
 [alias]
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 lg2 = log --graph --pretty=format:'%Cred%h%Creset - %C(dim white)%aD%C(reset) %Cgreen(%cr) %C(bold blue)<%an>%Creset%n %C(yellow)%d%Creset %s' --abbrev-commit
@@ -47,6 +47,7 @@ sdtag = for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/
 	followTags = true
 [merge]
 	defaultToUpstream = true
+  conflictstyle = zdiff3
 [branch]
   autosetuprebase = always
 [filter "media"]
@@ -65,15 +66,13 @@ sdtag = for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/
 	required = true
 [gc]
 	auto = 1
-
 [delta]
-    features = decorations
-
+  features = decorations
+  navigate = true
 [delta "decorations"]
-    file-style = bold yellow ul
-    file-decoration-style = none
-
+  file-style = bold yellow ul
+  file-decoration-style = none
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [init]
 	defaultBranch = master
