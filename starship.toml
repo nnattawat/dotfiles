@@ -118,6 +118,11 @@ symbol = ""
 style = "bg:color_bg3"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 
+[aws]
+symbol = " "
+style = "bg:color_blue"
+format = '[[ $symbol($profile)(\($region\))](fg:color_fg0 bg:color_blue)]($style)'
+
 [conda]
 style = "bg:color_bg3"
 format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
