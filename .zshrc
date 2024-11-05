@@ -1,12 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Remove right space for p10k
-ZLE_RPROMPT_INDENT=0
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -14,10 +5,6 @@ export SHELL=/bin/zsh
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Dont show username@host on powerline theme
-DEFAULT_USER=$USER
-prompt_context() {}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -235,7 +222,7 @@ export AWS_PROFILE=dev
 # open github repo in browser
 gh_open() {
   if [ -n "$1" ]; then
-    open "https://github.com/siteminder-au/${1}"
+    open "https://github.com/nib-group/${1}"
     return 0
   fi
 
@@ -260,13 +247,13 @@ new_pr() {
 bk_open() {
 
   if [ -n "$1" ]; then
-    open "https://buildkite.com/siteminder/${1}"
+    open "https://buildkite.com/nib-health-funds-ltd/${1}"
     return 0
   fi
 
   repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
 
-  open "https://buildkite.com/siteminder/${repo}"
+  open "https://buildkite.com/nib-health-funds-ltd/${repo}"
 }
 
 # open buildkite pipeline of the repo in browser
