@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_DOTENV_PROMPT=false
 
 # Allow direnv to load .envrc file
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -207,13 +207,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # SiteMinder config
-export PATH=$PATH:$HOME/Workspace/siteminder/infrastructure-deploy
-export DOTENV=.env.playpen
-export AWS_SDK_LOAD_CONFIG=1
-export AWS_PROFILE=dev
+# export PATH=$PATH:$HOME/Workspace/siteminder/infrastructure-deploy
+# export DOTENV=.env.playpen
+# export AWS_SDK_LOAD_CONFIG=1
+# export AWS_PROFILE=dev
 
 # SiteMinder specific
 
@@ -264,3 +264,8 @@ bk_open_branch() {
 }
 
 eval "$(starship init zsh)"
+
+# Lendi specific
+# brew for Mac chip is installed in different location
+export PATH="/opt/homebrew/bin:$PATH"
+
