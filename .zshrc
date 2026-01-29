@@ -14,9 +14,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Always allow load .env
 ZSH_DOTENV_PROMPT=false
 
-# Allow direnv to load .envrc file
-# eval "$(direnv hook zsh)"
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -77,11 +74,12 @@ ZSH_DOTENV_PROMPT=false
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  dotenv
   macos
   tmux
   aws
+  nvm
   npm
+  pnpm
   yarn
   docker
   docker-compose
@@ -204,18 +202,10 @@ grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,./log,./node_modules,/.v
 }
 
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init - zsh)"
 fi
-
-# eval "$(rbenv init -)"
-
-# SiteMinder config
-# export PATH=$PATH:$HOME/Workspace/siteminder/infrastructure-deploy
-# export DOTENV=.env.playpen
-# export AWS_SDK_LOAD_CONFIG=1
-# export AWS_PROFILE=dev
-
-# SiteMinder specific
 
 # open github repo in browser
 gh_open() {
@@ -230,7 +220,7 @@ gh_open() {
 }
 
 # new pr on github repo in browser
-new_pr() {
+gh_new_pr() {
   branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
   repo=$(git remote -v | grep fetch | grep origin | sed -e's/.*github.com.//' | sed -e's/\.git.*//')
 
@@ -241,17 +231,46 @@ new_pr() {
   fi
 }
 
-# open buildkite pipeline of the repo in browser
-bk_open() {
+# Open Bitbucket repository in browser
+bb_open() {
+  local url="https://bitbucket.org/lendi-dev"
 
   if [ -n "$1" ]; then
-    open "https://buildkite.com/nib-health-funds-ltd/${1}"
+    open "${url}/${1}"
     return 0
   fi
 
   repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
 
-  open "https://buildkite.com/nib-health-funds-ltd/${repo}"
+  open "${url}/${repo}"
+}
+
+bb_new_pr() {
+  branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+  repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
+
+  # if [ "$branch" = "develop" ]; then
+  #   open "https://bitbucket.org/lendi-dev/${repo}/compare/master...${branch}"
+  # else
+  open "https://bitbucket.org/lendi-dev/${repo}/pull-requests/new?source=${branch}"
+  # fi
+}
+
+# open buildkite pipeline of the repo in browser
+bk_open() {
+
+  if [ -n "$1" ]; then
+    open "https://buildkite.com/lendi-pty-ltd/${1}"
+    return 0
+  fi
+
+  repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
+
+  if [ "$repo" = "aurora" ]; then
+    repo="aurora-pipeline"
+  fi
+
+  open "https://buildkite.com/lendi-pty-ltd/${repo}"
 }
 
 # open buildkite pipeline of the repo in browser
@@ -260,12 +279,17 @@ bk_open_branch() {
   branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
   repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
 
-  open "https://buildkite.com/siteminder/${repo}/builds?branch=${branch}"
+  if [ "$repo" = "aurora" ]; then
+    repo="aurora-pipeline"
+  fi
+
+  open "https://buildkite.com/lendi-pty-ltd/${repo}/builds?branch=${branch}"
 }
 
 eval "$(starship init zsh)"
 
 # Lendi specific
+
 # brew for Mac chip is installed in different location
 export PATH="/opt/homebrew/bin:$PATH"
 
