@@ -249,11 +249,12 @@ bb_new_pr() {
   branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
   repo=$(git remote -v | grep fetch | grep origin | sed -e's#.*/\([^.]*\)\.git.*#\1#')
 
-  # if [ "$branch" = "develop" ]; then
-  #   open "https://bitbucket.org/lendi-dev/${repo}/compare/master...${branch}"
-  # else
+  if [ -n "$1" ]; then
+    open "https://bitbucket.org/lendi-dev/${repo}/pull-requests/new?source=${branch}&dest=${1}"
+    return 0
+  fi
+
   open "https://bitbucket.org/lendi-dev/${repo}/pull-requests/new?source=${branch}"
-  # fi
 }
 
 # open buildkite pipeline of the repo in browser
@@ -287,6 +288,24 @@ bk_open_branch() {
 }
 
 eval "$(starship init zsh)"
+
+# Tmux: show running command at top of pane (Zellij-style)
+_tmux_set_pane_title() {
+  [[ -z "$TMUX" ]] && return
+  local cmd="$1"
+  cmd="${cmd%%$'\n'*}"
+  [[ ${#cmd} -gt 80 ]] && cmd="${cmd:0:77}..."
+  command tmux set -p @pane_cmd_title "$cmd" 2>/dev/null
+}
+_tmux_init_pane_title() {
+  [[ -z "$TMUX" ]] && return
+  local current_title
+  current_title="$(command tmux show -pv @pane_cmd_title 2>/dev/null)"
+  [[ -n "$current_title" ]] && return
+  command tmux set -p @pane_cmd_title "${SHELL:t}" 2>/dev/null
+}
+add-zsh-hook preexec _tmux_set_pane_title
+add-zsh-hook precmd _tmux_init_pane_title
 
 # Lendi specific
 
